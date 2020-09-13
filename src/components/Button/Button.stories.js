@@ -5,6 +5,7 @@ export default {
 	title: 'Button',
 	component: Button,
 	args: { variant: 'contained', children: 'Button' },
+	argTypes: { onClick: { action: 'clicked' } },
 };
 
 const Template = (args) => <Button {...args} />;

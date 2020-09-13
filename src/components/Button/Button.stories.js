@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import Button from '@material-ui/core/Button';
 
 export default {
 	title: 'Button',
@@ -13,9 +13,9 @@ export const Primary = Template.bind({});
 export const Secondary = Template.bind({});
 
 Primary.args = {
-	variant: 'primary',
+	variant: 'contained',
 };
 
 Secondary.args = {
-	variant: 'secondary',
+	variant: 'filled',
 };

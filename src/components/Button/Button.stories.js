@@ -1,10 +1,21 @@
 import React from 'react';
-import Button from './Button'
+import Button from './Button';
 
 export default {
-    title: 'cats',
-    component: Button
-}
+	title: 'Button',
+	component: Button,
+};
 
-export const Primary = () => <Button variant='primary'>Primary</Button>
-export const Secondary = () => <Button variant='secondary'>secondary</Button>
+const Template = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+
+Primary.args = {
+	variant: 'primary',
+	children: 'Primary Button',
+};
+
+Primary.args = {
+	variant: 'secondary',
+	children: 'Secondary Button',
+};

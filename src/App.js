@@ -2,15 +2,16 @@ import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './Theme/theme';
-import ContextProvider from './contexts/context';
+import FamilyProvider from './global/family';
+import Test from './screens/test'
 
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<ContextProvider>
-				<div>hi</div>
-			</ContextProvider>
+			<FamilyProvider>
+				<Test/>
+			</FamilyProvider>
 		</ThemeProvider>
 	);
 }

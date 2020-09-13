@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useReducer } from 'react';
 import { fetchData } from '../api';
 import {familyReducer} from '../reducers/family'
 
-export const Context = createContext();
+export const FamilyContext = createContext();
 
 const ContextProvider = (props) => {
 	const [data, dispatch] = useReducer(familyReducer,[]);
@@ -13,7 +13,7 @@ const ContextProvider = (props) => {
 	useEffect(() => {
 		returnData();
 	}, []);
-	return <Context.Provider value={{ data, dispatch }}>{props.children}</Context.Provider>;
+	return <FamilyContext.Provider value={{ data, dispatch }}>{props.children}</FamilyContext.Provider>;
 };
 
 export default ContextProvider;

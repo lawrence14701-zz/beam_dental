@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 export default {
 	title: 'Button',
 	component: Button,
-	args: { children: 'Button' },
+	args: { variant: 'contained', children: 'Button' },
 };
 
 const Template = (args) => <Button {...args} />;
@@ -13,9 +13,9 @@ export const Primary = Template.bind({});
 export const Secondary = Template.bind({});
 
 Primary.args = {
-	variant: 'contained',
+	color: 'primary',
 };
 
 Secondary.args = {
-	variant: 'filled',
+	color: 'secondary',
 };

@@ -5,65 +5,69 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import useStyles from './style'
+import useStyles from './style';
+import uuid from 'react-uuid';
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+	const { children, value, index, ...other } = props;
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+	return (
+		<div
+			role="tabpanel"
+			hidden={value !== index}
+			id={`simple-tabpanel-${index}`}
+			aria-labelledby={`simple-tab-${index}`}
+			{...other}
+		>
+			{value === index && (
+				<Box p={3}>
+					<Typography>{children}</Typography>
+				</Box>
+			)}
+		</div>
+	);
 }
 
 TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+	children: PropTypes.node,
+	index: PropTypes.any.isRequired,
+	value: PropTypes.any.isRequired,
 };
 
 function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
+	return {
+		id: `simple-tab-${index}`,
+		'aria-controls': `simple-tabpanel-${index}`,
+	};
 }
 
-
 export default function SimpleTabs(props) {
-    const {tabs} = props
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+	const { tabs } = props;
+	const classes = useStyles();
+	const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          {Object.keys(tabs).map((tabName, i)=> (
-              <Tab label={tabName} {...a11yProps(i)} />
-          ))}
-        </Tabs>
-      </AppBar>
-      {Object.values(tabs).map((tabValue, i)=> (
-          <TabPanel value={value} index={i}>
-              {tabValue}
-          </TabPanel>
-      ))}
-    </div>
-  );
+	return (
+		<div className={classes.root}>
+			<AppBar position="static">
+				<Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+					{Object.keys(tabs).map((tabName, i) => (
+						<React.Fragment key={uuid()}>
+							<Tab label={tabName} {...a11yProps(i)} />
+						</React.Fragment>
+					))}
+				</Tabs>
+			</AppBar>
+			{Object.values(tabs).map((tabValue, i) => (
+				<React.Fragment key={uuid()}>
+					<TabPanel value={value} index={i}>
+						{tabValue}
+					</TabPanel>
+				</React.Fragment>
+			))}
+		</div>
+	);
 }

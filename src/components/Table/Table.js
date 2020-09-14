@@ -99,7 +99,7 @@ export default function Table(props) {
 							{
 								icon: actionTwo.name,
 								onClick: (event, rowData) => {
-									dispatch({ type: actionOne.hook.type, rowData });
+									dispatch({ type: actionTwo.hook.type, rowData });
 								},
 							},
 					  ]

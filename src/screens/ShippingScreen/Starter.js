@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const Starter = () => {
+const Starter = (props) => {
     console.log('hi')
-   return  <div>hi</div>
+   return  <>fsfd</>
 };
 
 export default Starter;

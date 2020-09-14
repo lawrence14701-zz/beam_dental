@@ -6,11 +6,26 @@ export const familyReducer = (state, action) => {
                 familyMembers: action.result
               })
         case 'SET_STARTER':
-            return
+            return {
+                ...state,
+                familyMembers : state.familyMembers.map(member => (
+                    member.id === action.rowData.id ? {...member, starter: true, refill: false} : member
+                ))
+            }
         case 'SET_REFILL':
-            return
-        case 'RESET_DATA':
-            return 
+            return {
+                ...state,
+                familyMembers : state.familyMembers.map(member => (
+                    member.id === action.rowData.id ? {...member, starter: false, refill: true} : member
+                ))
+            }
+        case "RESET_DATA":
+            return {
+                ...state,
+                familyMembers : state.familyMembers.map(member => (
+                    {...member, starter: false, refill: false}
+                ))
+            }
             default:
                 return state
     }

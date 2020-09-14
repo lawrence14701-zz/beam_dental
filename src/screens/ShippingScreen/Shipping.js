@@ -31,8 +31,8 @@ const ShippingScreen = () => {
 		data: data.familyMembers,
 	};
 
-	const actionOne = { node: <Button color="primary">Starter</Button>, name: 'add starter' };
-	const actionTwo = { node: <Button color="secondary">Refill</Button>, name: 'add refill' };
+	const actionOne = { node: <Button color="primary">Starter</Button>, name: 'add starter', hook: { type: 'SET_STARTER' }  };
+	const actionTwo = { node: <Button color="secondary">Refill</Button>, name: 'add refill', hook: { type: 'SET_REFILL' }  };
 
 	return (
 		<>

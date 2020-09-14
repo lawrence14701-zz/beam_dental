@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FamilyContext } from '../global/family';
-import Table from '../components/Table/Table';
-import Button from '../components/Button/Button';
-import Spinner from '../components/Spinner/Spinner';
-import Tabs from '../components/Tabs/Tabs';
+import { FamilyContext } from '../../global/family';
+import Table from '../../components/Table/Table';
+import Button from '../../components/Button/Button';
+import Spinner from '../../components/Spinner/Spinner';
+import Tabs from '../../components/Tabs/Tabs';
+import Refill from './Refill'
+import Starter from './Starter'
 
 const ShippingScreen = () => {
 	const { data } = useContext(FamilyContext);
@@ -38,7 +40,7 @@ const ShippingScreen = () => {
 			) : (
 				<div>
 					<Table title="Family Members" data={tableData} actionOne={actionOne} actionTwo={actionTwo} />
-					<Tabs tabs={{ 'Starter Boxes': 'itemOnePage', 'Refill Boxes': 'itemTwoPage' }} />
+					<Tabs tabs={{ 'Starter Boxes': <Starter/>, 'Refill Boxes': <Refill/> }} />
 				</div>
 			)}
 		</>

@@ -3,7 +3,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import muiTheme from './Theme/theme';
 import FamilyProvider from './global/family';
-import Shipping from './screens/Shipping';
+import Shipping from './screens/ShippingScreen/Shipping';
 
 function App() {
 	return (

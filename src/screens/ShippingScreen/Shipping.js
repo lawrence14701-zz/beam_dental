@@ -8,7 +8,7 @@ import Refill from './Refill'
 import Starter from './Starter'
 
 const ShippingScreen = () => {
-	const { data } = useContext(FamilyContext);
+	const { data, dispatch } = useContext(FamilyContext);
 	const [loading, setLoading] = useState(false);
 	console.log(data);
 	useEffect(() => {
@@ -24,6 +24,7 @@ const ShippingScreen = () => {
 
 	const tableData = {
 		columns: [
+			{ title: 'ID', field: 'id' },
 			{ title: 'Name', field: 'name' },
 			{ title: 'Brush Color', field: 'brush_color', type: 'string' },
 		],
@@ -39,7 +40,7 @@ const ShippingScreen = () => {
 				<Spinner />
 			) : (
 				<div>
-					<Table title="Family Members" data={tableData} actionOne={actionOne} actionTwo={actionTwo} />
+					<Table title="Family Members" data={tableData} actionOne={actionOne} actionTwo={actionTwo} dispatch={dispatch} />
 					<Tabs tabs={{ 'Starter Boxes': <Starter/>, 'Refill Boxes': <Refill/> }} />
 				</div>
 			)}

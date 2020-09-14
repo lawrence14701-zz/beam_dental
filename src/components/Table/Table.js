@@ -39,7 +39,7 @@ const tableIcons = {
 };
 
 export default function Table(props) {
-	const { data, title, actionOne, actionTwo } = props;
+	const { data, title, actionOne, actionTwo, dispatch } = props;
 	const [state, setState] = React.useState(data);
 	const editable = {
 		onRowAdd: (newData) =>
@@ -91,11 +91,16 @@ export default function Table(props) {
 					? [
 							{
 								icon: actionOne.name,
-								onClick: (event, rowData) => {},
+								onClick: (event, rowData) => {
+									console.log(rowData);
+									dispatch({ type: actionOne.hook.type, rowData });
+								},
 							},
 							{
 								icon: actionTwo.name,
-								onClick: (event, rowData) => {},
+								onClick: (event, rowData) => {
+									dispatch({ type: actionOne.hook.type, rowData });
+								},
 							},
 					  ]
 					: null
@@ -106,10 +111,18 @@ export default function Table(props) {
 							Action: (props) => {
 								const { action } = props;
 								if (action.icon === actionOne.name) {
-									return <ButtonGroup>{actionOne.node}</ButtonGroup>;
+									return (
+										<ButtonGroup onClick={(event) => props.action.onClick(event, props.data)}>
+											{actionOne.node}
+										</ButtonGroup>
+									);
 								}
 								if (action.icon === actionTwo.name) {
-									return <ButtonGroup>{actionTwo.node}</ButtonGroup>;
+									return (
+										<ButtonGroup onClick={(event) => props.action.onClick(event, props.data)}>
+											{actionTwo.node}
+										</ButtonGroup>
+									);
 								}
 							},
 					  }

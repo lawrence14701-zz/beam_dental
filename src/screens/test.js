@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
 import { FamilyContext } from '../global/family';
-import Testting from '../components/IconAndText/IconAndText'
+import List from '../components/List'
 
 
 const Cell = () => {
     const {data} = useContext(FamilyContext)
     console.log(data)
    return (
-       <Testting text='hi' color='blue'/>
+       <List/>
    )
 }
 

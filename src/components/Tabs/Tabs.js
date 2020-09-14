@@ -55,18 +55,14 @@ export default function SimpleTabs(props) {
 			<AppBar position="static">
 				<Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
 					{Object.keys(tabs).map((tabName, i) => (
-						<React.Fragment key={uuid()}>
-							<Tab label={tabName} {...a11yProps(i)} />
-						</React.Fragment>
+						<Tab key={uuid()} label={tabName} {...a11yProps(i)} />
 					))}
 				</Tabs>
 			</AppBar>
 			{Object.values(tabs).map((tabValue, i) => (
-				<React.Fragment key={uuid()}>
-					<TabPanel value={value} index={i}>
-						{tabValue}
-					</TabPanel>
-				</React.Fragment>
+				<TabPanel key={uuid()} value={value} index={i}>
+					{tabValue}
+				</TabPanel>
 			))}
 		</div>
 	);

@@ -2,7 +2,9 @@
 export const familyReducer = (state, action) => {
     switch(action.type){
         case 'SET_DATA':
-            return action.result
+            return Object.assign({}, state, {
+                familyMembers: action.result
+              })
             default:
                 return state
     }

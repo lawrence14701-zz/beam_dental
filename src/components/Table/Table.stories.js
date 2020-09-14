@@ -34,10 +34,15 @@ export default {
 
 const Template = (args) => <Table {...args} />;
 
-export const Primary = Template.bind({});
+export const ButtonTable = Template.bind({});
+export const Editable = Template.bind({});
 
-Primary.args = {
+ButtonTable.args = {
 	title: 'Family Members',
-	actionOne: { node: <Button color="primary">Starter</Button>, name: 'add starter' },
-	actionTwo: { node: <Button color="secondary">Refill</Button>, name: 'add refill' },
+	actionOne: { node: <Button color="primary">Starter</Button>, name: 'starter' },
+	actionTwo: { node: <Button color="secondary">Refill</Button>, name: 'refill' },
+};
+
+Editable.args = {
+	title: 'Family Members',
 };

@@ -1,55 +1,78 @@
 import React from 'react';
 import StarterBox from '../../components/Card/Card';
-import IconWithText from '../../components/IconAndText/style';
+import IconWithText from '../../components/IconAndText/IconAndText';
 import uuid from 'react-uuid';
-import { times } from 'lodash';
 
-function generateStarterBoxes(colors) {
-	return colors.map(ele => {
-		const color = Object.keys(ele)[0]
-		const { brushes } = Object.values(ele)[0];
-		/* 
-            doesn't matter if I divide by brushes or 
-            replacement heads since they are always equal 
-        */
+
+function generateBoxes(boxes) {
+	const nodeArr = []
+	const leftOverNodes = []
+	boxes.map(box => {
+		const color = Object.keys(box)[0]
+		const { brushes } = Object.values(box)[0];
 		const numOfBoxes = Math.floor(brushes / 2);
 		const remainder = brushes % 2;
 
-		function generate(element) {
-			// debugger
-			const numOfTimes = times(numOfBoxes, String);
-			return numOfTimes.map(() =>
-				React.cloneElement(element, {
-					key: uuid(),
-				})
-			);
+		for (let i = 0; i < numOfBoxes; i+=2) {
+			nodeArr.push({color:color})
 		}
-		// debugger
-		return (
-			<React.Fragment key={uuid()}>
-				{generate(
-					<StarterBox>
-					hi
-						{/* <IconWithText color={color} />
-						<IconWithText color={color} /> */}
-					</StarterBox>
-				)}
-				{remainder > 0 ? (
-					<StarterBox>
-					jo
-						{/* <IconWithText color={color} /> */}
-					</StarterBox>
-				) : null}
-			</React.Fragment>
-		);
+		if(remainder > 0){
+			leftOverNodes.push({color:color})
+		}
 	})
+	return[nodeArr,leftOverNodes]
 }
+
+
 
 const Starter = (props) => {
 	const {starter} = props
+	const [sameColor, leftOvers] = generateBoxes(starter)
+	const leftOverBoxes = []
+	while(leftOvers.length !== 0){
+		if(leftOvers % 2 === 0){
+			const colorOne = Object.values(leftOvers.shift())[0]
+			const colorTwo = Object.values(leftOvers.shift())[0]
+			leftOverBoxes.push({colorOne, colorTwo})
+		} else {
+			const colorOne = Object.values(leftOvers.shift())[0]
+			leftOverBoxes.push({colorOne})
+		}
+	}
 	return(
 		<>
-			{generateStarterBoxes(starter)}
+			{
+				sameColor.length === 0 ? null :
+				sameColor.map(node => (
+					 (<StarterBox key={uuid()}>
+						<div>
+							<IconWithText num='2' text='brushes' color={node.color} />
+							<IconWithText num='2' text="replacement heads" color={node.color} />
+						</div>
+					</StarterBox>)
+				))
+			}
+			{
+				leftOverBoxes.length === 0 ? null :
+				leftOverBoxes.map(node => (
+					node.length > 1 ? 
+					(<StarterBox key={uuid()}>
+						<div>
+							<IconWithText num='1' text='brushes' color={node.colorOne} />
+							<IconWithText num='1' text='replacement heads' color={node.colorOne} />
+							<IconWithText num='1' text="brushes" color={node.colorTwo} />
+							<IconWithText num='1' text="replacement heads" color={node.colorTwo} />
+						</div>
+					</StarterBox>)
+					:
+					(<StarterBox key={uuid()}>
+						<div>
+							<IconWithText num='1' text='brushes' color={node.colorOne} />
+							<IconWithText num='1' text="replacement heads" color={node.colorOne} />
+						</div>
+					</StarterBox>)
+				))
+			}
 		</>
 	)
 };

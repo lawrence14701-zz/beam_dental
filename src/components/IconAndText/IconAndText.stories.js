@@ -7,7 +7,7 @@ import muiTheme from '../../Theme/theme'
 export default {
 	title: 'IconAndText',
 	component: IconAndText,
-	args: { text: 'brushes', 'num': '2' },
+	args: { text: 'brushes', num: '2' },
 	argTypes: { onClick: { action: 'clicked' } },
 	decorators: [(Story) => <ThemeProvider theme={muiTheme}><Story/></ThemeProvider>]
 

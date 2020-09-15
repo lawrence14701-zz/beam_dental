@@ -67,6 +67,11 @@ export const familyReducer = (state, action) => {
           refill: false,
         })),
       }
+    case "SAVE_DATA":
+      return {
+        ...state,
+        familyMembers: action.state.data,
+      }
     default:
       return state
   }

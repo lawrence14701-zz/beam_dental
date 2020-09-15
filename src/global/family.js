@@ -13,6 +13,7 @@ const ContextProvider = (props) => {
   useEffect(() => {
     returnData()
   }, [])
+
   return (
     <FamilyContext.Provider value={{ data, dispatch }}>
       {props.children}

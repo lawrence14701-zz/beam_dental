@@ -55,4 +55,5 @@ ButtonTable.args = {
 
 Editable.args = {
   title: "Family Members",
+  type: "CRUD",
 }

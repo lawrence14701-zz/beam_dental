@@ -17,6 +17,9 @@ import SaveAlt from "@material-ui/icons/SaveAlt"
 import Search from "@material-ui/icons/Search"
 import ViewColumn from "@material-ui/icons/ViewColumn"
 import ButtonGroup from "@material-ui/core/ButtonGroup"
+import Button from "../Button/Button"
+import useStyles from "./style"
+import Grid from "@material-ui/core/Grid"
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -39,7 +42,8 @@ const tableIcons = {
 }
 
 export default function Table(props) {
-  const { data, title, actionOne, actionTwo, dispatch } = props
+  const classes = useStyles()
+  const { data, title, actionOne, actionTwo, dispatch, type } = props
   const [state, setState] = React.useState(data)
   const editable = {
     onRowAdd: (newData) =>
@@ -80,57 +84,71 @@ export default function Table(props) {
   }
 
   return (
-    <MaterialTable
-      icons={tableIcons}
-      title={title}
-      columns={state.columns}
-      data={state.data}
-      editable={!(actionOne && actionTwo) ? editable : null}
-      actions={
-        actionOne && actionTwo
-          ? [
-              {
-                icon: actionOne.name,
-                onClick: (event, rowData) => {
-                  dispatch({ type: actionOne.hook.type, rowData })
+    <div className={classes.root}>
+      <MaterialTable
+        icons={tableIcons}
+        title={title}
+        columns={state.columns}
+        data={state.data}
+        editable={!(actionOne && actionTwo) ? editable : null}
+        actions={
+          actionOne && actionTwo
+            ? [
+                {
+                  icon: actionOne.name,
+                  onClick: (event, rowData) => {
+                    dispatch({ type: actionOne.hook.type, rowData })
+                  },
                 },
-              },
-              {
-                icon: actionTwo.name,
-                onClick: (event, rowData) => {
-                  dispatch({ type: actionTwo.hook.type, rowData })
+                {
+                  icon: actionTwo.name,
+                  onClick: (event, rowData) => {
+                    dispatch({ type: actionTwo.hook.type, rowData })
+                  },
                 },
-              },
-            ]
-          : null
-      }
-      components={
-        actionOne && actionTwo
-          ? {
-              Action: (props) => {
-                const { action } = props
-                if (action.icon === actionOne.name) {
-                  return (
-                    <ButtonGroup
-                      onClick={(event) => props.action.onClick(event, props.data)}
-                    >
-                      {actionOne.node}
-                    </ButtonGroup>
-                  )
-                }
-                if (action.icon === actionTwo.name) {
-                  return (
-                    <ButtonGroup
-                      onClick={(event) => props.action.onClick(event, props.data)}
-                    >
-                      {actionTwo.node}
-                    </ButtonGroup>
-                  )
-                }
-              },
-            }
-          : null
-      }
-    />
+              ]
+            : null
+        }
+        components={
+          actionOne && actionTwo
+            ? {
+                Action: (props) => {
+                  const { action } = props
+                  if (action.icon === actionOne.name) {
+                    return (
+                      <ButtonGroup
+                        onClick={(event) => props.action.onClick(event, props.data)}
+                      >
+                        {actionOne.node}
+                      </ButtonGroup>
+                    )
+                  }
+                  if (action.icon === actionTwo.name) {
+                    return (
+                      <ButtonGroup
+                        onClick={(event) => props.action.onClick(event, props.data)}
+                      >
+                        {actionTwo.node}
+                      </ButtonGroup>
+                    )
+                  }
+                },
+              }
+            : null
+        }
+      />
+      {type === "CRUD" ? (
+        <Grid className={classes.container} container alignContent="center">
+          <Button
+            className={classes.button}
+            variant="outlined"
+            color="primary"
+            onClick={() => dispatch({ type: "SAVE_DATA", state: state })}
+          >
+            Save
+          </Button>
+        </Grid>
+      ) : null}
+    </div>
   )
 }

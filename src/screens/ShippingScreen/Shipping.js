@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
-import { FamilyContext } from "../../global/family"
+import React, { useEffect, useState } from "react"
 import Table from "../../components/Table/Table"
 import Button from "../../components/Button/Button"
 import Spinner from "../../components/Spinner/Spinner"
@@ -7,8 +6,8 @@ import Tabs from "../../components/Tabs/Tabs"
 import Refill from "./Refill"
 import Starter from "./Starter"
 
-const ShippingScreen = () => {
-  const { data, dispatch } = useContext(FamilyContext)
+const ShippingScreen = (props) => {
+  const { data, dispatch } = props
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     if (data.length === 0) {

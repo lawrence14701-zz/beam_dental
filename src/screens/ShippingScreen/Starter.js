@@ -1,9 +1,65 @@
 import React from 'react';
+import StarterBox from '../../components/Card/Card';
+import IconWithText from '../../components/IconAndText/style';
+import uuid from 'react-uuid';
+import { times } from 'lodash';
 
+function generateStarterBoxes(colors) {
+	return colors.map(ele => {
+		const color = Object.keys(ele)[0]
+		const { brushes } = Object.values(ele)[0];
+		/* 
+            doesn't matter if I divide by brushes or 
+            replacement heads since they are always equal 
+        */
+		const numOfBoxes = Math.floor(brushes / 2);
+		const remainder = brushes % 2;
+
+		function generate(element) {
+			// debugger
+			const numOfTimes = times(numOfBoxes, String);
+			return numOfTimes.map(() =>
+				React.cloneElement(element, {
+					key: uuid(),
+				})
+			);
+		}
+		// debugger
+		return (
+			<>
+				{generate(
+					<StarterBox>
+					hi
+						{/* <IconWithText color={color} />
+						<IconWithText color={color} /> */}
+					</StarterBox>
+				)}
+				{remainder > 0 ? (
+					<StarterBox>
+					jo
+						{/* <IconWithText color={color} /> */}
+					</StarterBox>
+				) : null}
+			</>
+		);
+	})
+}
 
 const Starter = (props) => {
-    console.log('hi')
-   return  <>fsfd</>
+	const {starter} = props
+	console.log(starter)
+	function generateBoxes(element){
+		return [0,1,2].map(() =>
+		 React.cloneElement(element, {
+			key: uuid(),
+		}))
+	}
+	return(
+		<>
+		{generateStarterBoxes(starter)}
+		
+		</>
+	)
 };
 
 export default Starter;

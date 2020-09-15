@@ -92,7 +92,6 @@ export default function Table(props) {
 							{
 								icon: actionOne.name,
 								onClick: (event, rowData) => {
-									console.log(rowData);
 									dispatch({ type: actionOne.hook.type, rowData });
 								},
 							},

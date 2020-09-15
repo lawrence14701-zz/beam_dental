@@ -10,7 +10,6 @@ import Starter from './Starter'
 const ShippingScreen = () => {
 	const { data, dispatch } = useContext(FamilyContext);
 	const [loading, setLoading] = useState(false);
-	console.log(data);
 	useEffect(() => {
 		if (data.length === 0) {
 			console.log('loading');
@@ -41,7 +40,7 @@ const ShippingScreen = () => {
 			) : (
 				<div>
 					<Table title="Family Members" data={tableData} actionOne={actionOne} actionTwo={actionTwo} dispatch={dispatch} />
-					<Tabs tabs={{ 'Starter Boxes': <Starter/>, 'Refill Boxes': <Refill/> }} />
+					<Tabs tabs={{ 'Starter Boxes': <Starter {...data}/>, 'Refill Boxes': <Refill {...data} /> }} />
 				</div>
 			)}
 		</>

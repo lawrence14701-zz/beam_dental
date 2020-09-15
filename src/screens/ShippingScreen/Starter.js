@@ -26,7 +26,7 @@ function generateStarterBoxes(colors) {
 		}
 		// debugger
 		return (
-			<>
+			<React.Fragment key={uuid()}>
 				{generate(
 					<StarterBox>
 					hi
@@ -40,24 +40,16 @@ function generateStarterBoxes(colors) {
 						{/* <IconWithText color={color} /> */}
 					</StarterBox>
 				) : null}
-			</>
+			</React.Fragment>
 		);
 	})
 }
 
 const Starter = (props) => {
 	const {starter} = props
-	console.log(starter)
-	function generateBoxes(element){
-		return [0,1,2].map(() =>
-		 React.cloneElement(element, {
-			key: uuid(),
-		}))
-	}
 	return(
 		<>
-		{generateStarterBoxes(starter)}
-		
+			{generateStarterBoxes(starter)}
 		</>
 	)
 };

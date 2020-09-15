@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import FamilyProvider from './global/family';
+import ManagerProvider from './global/manager';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FamilyProvider>
-      <App />
-    </FamilyProvider>
+  <ManagerProvider>
+      <FamilyProvider>
+        <App />
+      </FamilyProvider>
+    </ManagerProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -2,25 +2,7 @@ import React from "react"
 import StarterBox from "../../components/Card/Card"
 import IconWithText from "../../components/IconAndText/IconAndText"
 import uuid from "react-uuid"
-
-function generateBoxes(boxes) {
-  const nodeArr = []
-  const leftOverNodes = []
-  boxes.map((box) => {
-    const color = Object.keys(box)[0]
-    const { brushes } = Object.values(box)[0]
-    const numOfBoxes = Math.floor(brushes / 2)
-    const remainder = brushes % 2
-
-    for (let i = 0; i < numOfBoxes; i += 2) {
-      nodeArr.push({ color: color })
-    }
-    if (remainder > 0) {
-      leftOverNodes.push({ color: color })
-    }
-  })
-  return [nodeArr, leftOverNodes]
-}
+import { generateBoxes } from "../../util/helperFunctions"
 
 const Starter = (props) => {
   const { starter } = props

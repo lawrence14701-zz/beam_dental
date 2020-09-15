@@ -1,10 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		padding: '10px',
-		width: '100%'
-	},
-}));
+const useStyles = makeStyles(() => ({
+  root: {
+    padding: "10px",
+    width: "100%",
+  },
+}))
 
-export default useStyles;
+export default useStyles

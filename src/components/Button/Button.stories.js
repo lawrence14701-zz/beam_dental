@@ -1,22 +1,22 @@
-import React from 'react';
-import Button from './Button';
+import React from "react"
+import Button from "./Button"
 
 export default {
-	title: 'Button',
-	component: Button,
-	args: { variant: 'contained', children: 'Button' },
-	argTypes: { onClick: { action: 'clicked' } },
-};
+  title: "Button",
+  component: Button,
+  args: { variant: "contained", children: "Button" },
+  argTypes: { onClick: { action: "clicked" } },
+}
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Button {...args} />
 
-export const Primary = Template.bind({});
-export const Secondary = Template.bind({});
+export const Primary = Template.bind({})
+export const Secondary = Template.bind({})
 
 Primary.args = {
-	color: 'primary',
-};
+  color: "primary",
+}
 
 Secondary.args = {
-	color: 'secondary',
-};
+  color: "secondary",
+}

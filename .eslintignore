@@ -1,0 +1,4 @@
+#ignore
+package.json
+package-lock.json
+src/serviceWorker.js

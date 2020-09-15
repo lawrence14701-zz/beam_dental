@@ -1,20 +1,15 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import useStyles from './style'
+import React from "react"
+import Avatar from "@material-ui/core/Avatar"
+import Button from "@material-ui/core/Button"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import TextField from "@material-ui/core/TextField"
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
+import Typography from "@material-ui/core/Typography"
+import Container from "@material-ui/core/Container"
+import useStyles from "./style"
 
-
-export default function Login(props) {
-  const classes = useStyles();
+export default function Login() {
+  const classes = useStyles()
 
   return (
     <Container component="main" maxWidth="xs">
@@ -36,7 +31,6 @@ export default function Login(props) {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
           />
           <TextField
             variant="outlined"
@@ -61,5 +55,5 @@ export default function Login(props) {
         </form>
       </div>
     </Container>
-  );
+  )
 }

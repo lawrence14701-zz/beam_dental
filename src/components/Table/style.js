@@ -1,11 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles"
 
-const useStyles = ((theme) => ({
+const useStyles = (theme) => ({
   root: {
-    width: '100%',
+    width: "100%",
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
-  }));
+})
 
-  export default makeStyles(useStyles)
+export default makeStyles(useStyles)

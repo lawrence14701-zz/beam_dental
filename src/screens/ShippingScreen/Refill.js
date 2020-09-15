@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react"
 
+const Refill = () => {
+  return <>hifs</>
+}
 
-const Refill = (props) => {
-    console.log('hi')
-   return  <>hifs</>
-};
-
-export default Refill;
+export default Refill

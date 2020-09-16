@@ -5,11 +5,11 @@ export const generateBoxes = (boxes) => {
   boxes.map((box) => {
     const color = Object.keys(box)[0]
     const { brushes } = Object.values(box)[0]
-    const numOfBoxes = Math.floor(brushes / 2)
+    let numOfBoxes = Math.floor(brushes / 2)
     const remainder = brushes % 2
-
-    for (let i = 0; i < numOfBoxes; i += 2) {
+    while (numOfBoxes > 0) {
       nodeArr.push({ color: color })
+      numOfBoxes -= 1
     }
     if (remainder > 0) {
       leftOverNodes.push({ color: color })

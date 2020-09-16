@@ -9,6 +9,7 @@ import Starter from "./Starter"
 const ShippingScreen = (props) => {
   const { data, dispatch } = props
   const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     if (data.length === 0) {
       //loading
@@ -33,11 +34,13 @@ const ShippingScreen = (props) => {
     node: <Button color="primary">Starter</Button>,
     name: "add starter",
     hook: { type: "SET_STARTER" },
+    snackbar: "Add Starter",
   }
   const actionTwo = {
     node: <Button color="secondary">Refill</Button>,
     name: "add refill",
     hook: { type: "SET_REFILL" },
+    snackbar: "Add refill",
   }
 
   return (

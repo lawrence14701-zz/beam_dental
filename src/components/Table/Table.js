@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import MaterialTable from "material-table"
 import { forwardRef } from "react"
 import AddBox from "@material-ui/icons/AddBox"
@@ -20,6 +20,8 @@ import ButtonGroup from "@material-ui/core/ButtonGroup"
 import Button from "../Button/Button"
 import useStyles from "./style"
 import Grid from "@material-ui/core/Grid"
+import SnackBar from "../SnackBar/SnackBar"
+import uuid from "react-uuid"
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -44,7 +46,23 @@ const tableIcons = {
 export default function Table(props) {
   const classes = useStyles()
   const { data, title, actionOne, actionTwo, dispatch, type } = props
-  const [state, setState] = React.useState(data)
+  const [state, setState] = useState(data)
+  const [saveNodes, setSaveNodes] = useState([])
+  const [actionOneNodes, setOneNodes] = useState([])
+  const [actionTwoNodes, setTwoNodes] = useState([])
+
+  const handleClick = () => {
+    dispatch({ type: "SAVE_DATA", state: state })
+    saveNodes.push(
+      React.createElement(SnackBar, {
+        type: "primary",
+        text: "Successfully Saved",
+        isOpen: true,
+      })
+    )
+    setSaveNodes(saveNodes)
+  }
+
   const editable = {
     onRowAdd: (newData) =>
       new Promise((resolve) => {
@@ -82,7 +100,6 @@ export default function Table(props) {
         }, 600)
       }),
   }
-
   return (
     <div className={classes.root}>
       <MaterialTable
@@ -98,12 +115,28 @@ export default function Table(props) {
                   icon: actionOne.name,
                   onClick: (event, rowData) => {
                     dispatch({ type: actionOne.hook.type, rowData })
+                    actionOneNodes.push(
+                      React.createElement(SnackBar, {
+                        type: "primary",
+                        text: actionOne.snackbar,
+                        isOpen: true,
+                      })
+                    )
+                    setOneNodes(actionOneNodes)
                   },
                 },
                 {
                   icon: actionTwo.name,
                   onClick: (event, rowData) => {
                     dispatch({ type: actionTwo.hook.type, rowData })
+                    actionTwoNodes.push(
+                      React.createElement(SnackBar, {
+                        type: "secondary",
+                        text: actionTwo.snackbar,
+                        isOpen: true,
+                      })
+                    )
+                    setTwoNodes(actionOneNodes)
                   },
                 },
               ]
@@ -117,6 +150,7 @@ export default function Table(props) {
                   if (action.icon === actionOne.name) {
                     return (
                       <ButtonGroup
+                        disabled={props.data.starter}
                         onClick={(event) => props.action.onClick(event, props.data)}
                       >
                         {actionOne.node}
@@ -138,17 +172,34 @@ export default function Table(props) {
         }
       />
       {type === "CRUD" ? (
-        <Grid className={classes.container} container alignContent="center">
-          <Button
-            className={classes.button}
-            variant="outlined"
-            color="primary"
-            onClick={() => dispatch({ type: "SAVE_DATA", state: state })}
-          >
-            Save
-          </Button>
-        </Grid>
+        <>
+          <Grid className={classes.container} container alignContent="center">
+            <Button
+              className={classes.button}
+              variant="outlined"
+              color="primary"
+              onClick={() => handleClick()}
+            >
+              Save
+            </Button>
+          </Grid>
+          {saveNodes.length > 0
+            ? saveNodes.map((node) => {
+                return <div key={uuid()}>{node}</div>
+              })
+            : null}
+        </>
       ) : null}
+      {actionOneNodes.length > 0
+        ? actionOneNodes.map((node) => {
+            return <div key={uuid()}>{node}</div>
+          })
+        : null}
+      {actionTwoNodes.length > 0
+        ? actionTwoNodes.map((node) => {
+            return <div key={uuid()}>{node}</div>
+          })
+        : null}
     </div>
   )
 }

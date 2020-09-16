@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Button from "@material-ui/core/Button"
 import Snackbar from "@material-ui/core/Snackbar"
 import IconButton from "@material-ui/core/IconButton"
@@ -6,11 +6,14 @@ import CloseIcon from "@material-ui/icons/Close"
 
 export default function SimpleSnackbar(props) {
   const { isOpen, text, type } = props
-  const [open, setOpen] = React.useState(isOpen)
+  const [open, setOpen] = React.useState(false)
 
   const handleClose = () => {
     setOpen(false)
   }
+  useEffect(() => {
+    setOpen(isOpen)
+  }, [isOpen])
 
   return (
     <div>
@@ -20,7 +23,6 @@ export default function SimpleSnackbar(props) {
           horizontal: "left",
         }}
         open={open}
-        autoHideDuration={6000}
         onClose={handleClose}
         message={text}
         action={

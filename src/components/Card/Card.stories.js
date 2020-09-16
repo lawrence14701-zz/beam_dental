@@ -1,6 +1,5 @@
 import React from "react"
 import Card from "./Card"
-import { Blue } from "../IconAndText/IconAndText.stories"
 import { ThemeProvider } from "@material-ui/styles"
 import muiTheme from "../../theme/theme"
 import Grid from "@material-ui/core/Grid"
@@ -41,5 +40,5 @@ const Template = (args) => (
 export const Primary = Template.bind({})
 
 Primary.args = {
-  children: <Blue color="blue" text="brush" num="2" />,
+  children: { color: "blue", text: "brush", num: "2" },
 }

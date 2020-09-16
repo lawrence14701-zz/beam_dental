@@ -1,5 +1,4 @@
 import CardContainer from "../../components/CardContainer/CardContainer"
-import { shallow } from "enzyme"
 import React from "react"
 import "../jestsetup"
 

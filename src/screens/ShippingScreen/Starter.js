@@ -29,8 +29,9 @@ const Starter = (props) => {
             />
           </>
         )
+      } else {
+        return null
       }
-      return
     })
   }
   const renderBoxes = () => {
@@ -42,8 +43,9 @@ const Starter = (props) => {
             {renderItems(colors, node).map((el) => el)}
           </StarterBox>
         )
+      } else {
+        return null
       }
-      return
     })
   }
   return (

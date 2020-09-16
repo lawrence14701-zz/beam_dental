@@ -21,8 +21,9 @@ const Refill = (props) => {
             color={ele.color}
           />
         )
+      } else {
+        return null
       }
-      return
     })
   }
   const renderBoxes = () => {
@@ -34,8 +35,9 @@ const Refill = (props) => {
             {renderItems(colors, node).map((el) => el)}
           </RefillBox>
         )
+      } else {
+        return null
       }
-      return
     })
   }
   return (

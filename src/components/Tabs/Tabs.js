@@ -52,10 +52,15 @@ export default function SimpleTabs(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar color="transparent" position="static" elevation={0}>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           {Object.keys(tabs).map((tabName, i) => (
-            <Tab key={uuid()} label={tabName} {...a11yProps(i)} />
+            <Tab
+              className={classes.tab}
+              key={uuid()}
+              label={tabName}
+              {...a11yProps(i)}
+            />
           ))}
         </Tabs>
       </AppBar>

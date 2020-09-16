@@ -1,7 +1,7 @@
 import React from "react"
 import CardContainer from "./CardContainer"
 import { ThemeProvider } from "@material-ui/styles"
-import muiTheme from "../../Theme/theme"
+import muiTheme from "../../theme/theme"
 import Card from "../Card/Card"
 import IconWithText from "../IconAndText/IconAndText"
 import uuid from "react-uuid"

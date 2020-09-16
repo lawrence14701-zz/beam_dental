@@ -1,6 +1,5 @@
 import Table from "../../../src/components/Table/Table"
 import Snackbar from "../../../src/components/SnackBar/SnackBar"
-import { renderHook } from "@testing-library/react-hooks"
 
 describe("edit screen should contain crud table and button to save and move to next screen", () => {
   it("renders the login modal even when wrong url is hit", () => {
@@ -11,7 +10,7 @@ describe("edit screen should contain crud table and button to save and move to n
   })
   it("returns an editable table on the first shipping screen and shows a snackbar when to save button is clicked", () => {
     cy.get(Table)
-    renderHook(() => cy.contains("Save").click())
+    cy.contains('Save').debug()
     cy.wait(1000)
     cy.get(Snackbar).contains("success")
   })

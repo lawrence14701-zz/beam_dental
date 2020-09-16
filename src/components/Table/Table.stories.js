@@ -1,7 +1,7 @@
 import React from "react"
 import Table from "./Table"
 import { ThemeProvider } from "@material-ui/styles"
-import muiTheme from "../../Theme/theme"
+import muiTheme from "../../theme/theme"
 import Button from "../Button/Button"
 
 export default {

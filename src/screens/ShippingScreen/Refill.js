@@ -9,27 +9,26 @@ import Container from "../../components/CardContainer/CardContainer"
 const Refill = (props) => {
   const { refill } = props
   const [nodes, count] = generateBoxes(refill, 4)
+  const renderItems = (colors, node) => {
+    return node.map((ele) => {
+      if (!colors.includes(ele.color)) {
+        colors.push(ele.color)
+        return (
+          <IconWithText
+            key={uuid()}
+            num={node.filter((el) => el.color === ele.color).length}
+            text="replacement heads"
+            color={ele.color}
+          />
+        )
+      }
+    })
+  }
   const renderBoxes = () => {
     return nodes.map((node) => {
       const colors = []
       if (node.length !== 0) {
-        return (
-          <RefillBox key={uuid()}>
-            {node.map((ele) => {
-              if (!colors.includes(ele.color)) {
-                colors.push(ele.color)
-                return (
-                  <IconWithText
-                    key={uuid()}
-                    num={node.filter((el) => el.color === ele.color).length}
-                    text="replacement heads"
-                    color={ele.color}
-                  />
-                )
-              }
-            })}
-          </RefillBox>
-        )
+        return <RefillBox key={uuid()}>{renderItems(colors, node)}</RefillBox>
       }
     })
   }

@@ -6,6 +6,7 @@ export default createMuiTheme({
       blue: "#01c4e9",
       pink: "#e92fac",
       green: "#e0e900",
+      background: { backgroundColor: "#01c4e9" },
     },
   },
 })

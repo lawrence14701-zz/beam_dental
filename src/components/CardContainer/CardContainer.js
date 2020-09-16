@@ -29,7 +29,7 @@ export default function TitlebarGridList(props) {
       <GridList cellHeight={250} className={classes.gridList}>
         <GridListTile
           key="Subheader"
-          cols={3}
+          cols={2}
           style={{ height: "auto" }}
         ></GridListTile>
         {data.map((ele) => (

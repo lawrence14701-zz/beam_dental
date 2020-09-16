@@ -1,7 +1,7 @@
 import React from "react"
 import SnackBar from "./SnackBar"
 import { ThemeProvider } from "@material-ui/styles"
-import muiTheme from "../../Theme/theme"
+import muiTheme from "../../theme/theme"
 
 export default {
   title: "SnackBar",

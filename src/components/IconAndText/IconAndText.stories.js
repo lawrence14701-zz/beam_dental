@@ -1,7 +1,7 @@
 import React from "react"
 import IconAndText from "./IconAndText"
 import { ThemeProvider } from "@material-ui/styles"
-import muiTheme from "../../Theme/theme"
+import muiTheme from "../../theme/theme"
 
 export default {
   title: "IconAndText",

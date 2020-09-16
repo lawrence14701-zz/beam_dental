@@ -2,7 +2,7 @@ import React from "react"
 import Card from "./Card"
 import { Blue } from "../IconAndText/IconAndText.stories"
 import { ThemeProvider } from "@material-ui/styles"
-import muiTheme from "../../Theme/theme"
+import muiTheme from "../../theme/theme"
 import Grid from "@material-ui/core/Grid"
 
 export default {

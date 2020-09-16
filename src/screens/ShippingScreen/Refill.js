@@ -10,10 +10,11 @@ const Refill = (props) => {
   const { refill } = props
   const [nodes, count] = generateBoxes(refill, 4)
   const renderItems = (colors, node) => {
-    return node.map((ele) => {
+    const arr = []
+    node.forEach((ele) => {
       if (!colors.includes(ele.color)) {
         colors.push(ele.color)
-        return (
+        arr.push(
           <IconWithText
             key={uuid()}
             num={node.filter((el) => el.color === ele.color).length}
@@ -23,13 +24,16 @@ const Refill = (props) => {
         )
       }
     })
+    return arr
   }
   const renderBoxes = () => {
-    return nodes.map((node) => {
+    const arr = []
+    nodes.forEach((node) => {
       const colors = []
       if (node.length !== 0) {
-        return <RefillBox key={uuid()}>{renderItems(colors, node)}</RefillBox>
+        arr.push(<RefillBox key={uuid()}>{renderItems(colors, node)}</RefillBox>)
       }
+      return arr
     })
   }
   return (

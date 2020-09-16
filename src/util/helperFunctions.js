@@ -2,7 +2,7 @@ export const generateBoxes = (boxes, max) => {
   let count = 0
   const nodeArr = []
   const leftOverNodes = []
-  boxes.map((box) => {
+  boxes.forEach((box) => {
     const color = Object.keys(box)[0]
     const { brushes } = Object.values(box)[0]
     let remainder = brushes % max
@@ -24,7 +24,6 @@ export const generateBoxes = (boxes, max) => {
       leftOverNodes.push({ color })
       remainder -= 1
     }
-    return
   })
   while (leftOverNodes.length > 0) {
     const node = leftOverNodes.shift()

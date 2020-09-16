@@ -22,18 +22,18 @@ export const closed = Template.bind({})
 
 openSuccess.args = {
   isOpen: true,
-  type: "success",
+  type: "primary",
   text: "success",
 }
 
 openFail.args = {
   isOpen: true,
   text: "fail",
-  type: "error",
+  type: "secondary",
 }
 
 closed.args = {
   isOpen: false,
-  type: "error",
+  type: "primary",
   text: "closed",
 }

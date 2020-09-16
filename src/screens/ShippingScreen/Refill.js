@@ -2,12 +2,12 @@ import React from "react"
 import RefillBox from "../../components/Card/Card"
 import IconWithText from "../../components/IconAndText/IconAndText"
 import uuid from "react-uuid"
-import { generateRefillBoxes } from "../../util/helperFunctions"
+import { generateBoxes } from "../../util/helperFunctions"
 import Typography from "@material-ui/core/Typography"
 
 const Refill = (props) => {
   const { refill } = props
-  const [nodes, count] = generateRefillBoxes(refill)
+  const [nodes, count] = generateBoxes(refill, 4)
 
   return (
     <>

@@ -2,67 +2,51 @@ import React from "react"
 import StarterBox from "../../components/Card/Card"
 import IconWithText from "../../components/IconAndText/IconAndText"
 import uuid from "react-uuid"
-import { generateStarterBoxes } from "../../util/helperFunctions"
+import { generateBoxes } from "../../util/helperFunctions"
+import Typography from "@material-ui/core/Typography"
 
 const Starter = (props) => {
   const { starter } = props
-  const [sameColor, leftOvers] = generateStarterBoxes(starter)
-  const leftOverBoxes = []
-  while (leftOvers.length !== 0) {
-    if (leftOvers % 2 === 0) {
-      const colorOne = Object.values(leftOvers.shift())[0]
-      const colorTwo = Object.values(leftOvers.shift())[0]
-      leftOverBoxes.push({ colorOne, colorTwo })
-    } else {
-      const colorOne = Object.values(leftOvers.shift())[0]
-      leftOverBoxes.push({ colorOne })
-    }
-  }
+  const [nodes, count] = generateBoxes(starter, 2)
   return (
     <>
-      {sameColor.length === 0
-        ? null
-        : sameColor.map((node) => (
+      <Typography>Summary</Typography>
+      <Typography>Starter Boxes:</Typography>
+      <Typography>{nodes.length - 1}</Typography>
+      <Typography>Brushes:</Typography>
+      <Typography>{count}</Typography>
+      <Typography>Replacement Heads:</Typography>
+      <Typography>{count}</Typography>
+      {nodes.map((node) => {
+        const colors = []
+        if (node.length !== 0) {
+          return (
             <StarterBox key={uuid()}>
-              <div>
-                <IconWithText num="2" text="brushes" color={node.color} />
-                <IconWithText num="2" text="replacement heads" color={node.color} />
-              </div>
+              {node.map((ele) => {
+                if (!colors.includes(ele.color)) {
+                  colors.push(ele.color)
+                  return (
+                    <>
+                      <IconWithText
+                        key={uuid()}
+                        num={node.filter((el) => el.color === ele.color).length}
+                        text="replacement heads"
+                        color={ele.color}
+                      />
+                      <IconWithText
+                        key={uuid()}
+                        num={node.filter((el) => el.color === ele.color).length}
+                        text="Brushes"
+                        color={ele.color}
+                      />
+                    </>
+                  )
+                }
+              })}
             </StarterBox>
-          ))}
-      {leftOverBoxes.length === 0
-        ? null
-        : leftOverBoxes.map((node) =>
-            node.length > 1 ? (
-              <StarterBox key={uuid()}>
-                <div>
-                  <IconWithText num="1" text="brushes" color={node.colorOne} />
-                  <IconWithText
-                    num="1"
-                    text="replacement heads"
-                    color={node.colorOne}
-                  />
-                  <IconWithText num="1" text="brushes" color={node.colorTwo} />
-                  <IconWithText
-                    num="1"
-                    text="replacement heads"
-                    color={node.colorTwo}
-                  />
-                </div>
-              </StarterBox>
-            ) : (
-              <StarterBox key={uuid()}>
-                <div>
-                  <IconWithText num="1" text="brushes" color={node.colorOne} />
-                  <IconWithText
-                    num="1"
-                    text="replacement heads"
-                    color={node.colorOne}
-                  />
-                </div>
-              </StarterBox>
-            )
-          )}
+          )
+        }
+      })}
     </>
   )
 }

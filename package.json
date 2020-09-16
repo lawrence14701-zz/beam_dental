@@ -13,13 +13,16 @@
     "axios": "^0.20.0",
     "babel-preset-env": "^1.7.0",
     "classnames": "^2.2.6",
+    "enzyme-to-json": "^3.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-enzyme": "^0.2.0",
     "eslint-plugin-jest": "^24.0.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "husky": "^4.3.0",
+    "jest": "^26.4.2",
     "lodash": "^4.17.20",
     "material-table": "^1.69.0",
     "prettier": "^2.1.1",
@@ -27,6 +30,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-test-renderer": "^16.13.1",
     "react-uuid": "^1.0.2"
   },
   "resolutions": {
@@ -35,7 +39,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "eject": "react-scripts eject",
@@ -47,10 +51,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "jest": {
-    "setupFiles": ["./test/jestsetup.js"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "browserslist": {
     "production": [

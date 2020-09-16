@@ -12,9 +12,9 @@ const PrivateRoute = ({ component: Component, ...otherProps }) => {
       {...otherProps}
       render={() =>
         isAuthenticated ? (
-          <Route component={Edit} to="/shipping" />
+          <Route component={Edit} path="/shipping" />
         ) : (
-          <Route component={Login} to="./" />
+          <Route component={Login} to="/" />
         )
       }
     />

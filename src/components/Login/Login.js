@@ -7,14 +7,18 @@ import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import useStyles from "./style"
 import { AuthContext } from "../../global/auth"
+import { useHistory } from "react-router-dom"
 
 const Login = (props) => {
+  let history = useHistory()
+
   const { login } = useContext(AuthContext)
   const handleClick = () => {
     setClicked(true)
     setTimeout(() => {
       login()
     }, 1000)
+    history.push("/shipping")
   }
   const { email, password } = props
   const [clicked, setClicked] = useState(false)

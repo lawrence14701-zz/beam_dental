@@ -30,14 +30,20 @@ const Starter = (props) => {
           </>
         )
       }
+      return
     })
   }
   const renderBoxes = () => {
     return nodes.map((node) => {
       const colors = []
       if (node.length !== 0) {
-        return <StarterBox key={uuid()}>{renderItems(colors, node)}</StarterBox>
+        return (
+          <StarterBox key={uuid()}>
+            {renderItems(colors, node).map((el) => el)}
+          </StarterBox>
+        )
       }
+      return
     })
   }
   return (

@@ -2,7 +2,6 @@ export const generateBoxes = (boxes, max) => {
   let count = 0
   const nodeArr = []
   const leftOverNodes = []
-  // eslint-disable-next-line
   boxes.map((box) => {
     const color = Object.keys(box)[0]
     const { brushes } = Object.values(box)[0]
@@ -25,6 +24,7 @@ export const generateBoxes = (boxes, max) => {
       leftOverNodes.push({ color })
       remainder -= 1
     }
+    return
   })
   while (leftOverNodes.length > 0) {
     const node = leftOverNodes.shift()

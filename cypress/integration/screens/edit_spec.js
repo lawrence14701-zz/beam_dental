@@ -10,7 +10,7 @@ describe("edit screen should contain crud table and button to save and move to n
   })
   it("returns an editable table on the first shipping screen and shows a snackbar when to save button is clicked", () => {
     cy.get(Table)
-    cy.contains('Save').debug()
+    cy.contains("Save").debug()
     cy.wait(1000)
     cy.get(Snackbar).contains("success")
   })

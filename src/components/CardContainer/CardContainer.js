@@ -26,10 +26,10 @@ export default function TitlebarGridList(props) {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
+      <GridList cellHeight={250} className={classes.gridList}>
         <GridListTile
           key="Subheader"
-          cols={2}
+          cols={3}
           style={{ height: "auto" }}
         ></GridListTile>
         {data.map((ele) => (

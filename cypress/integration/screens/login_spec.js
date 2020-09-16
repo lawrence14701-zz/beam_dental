@@ -1,5 +1,5 @@
 import LoginScreen from "../../src/screens/LoginScreen/Login"
-import Spinner from '../../src/components/Spinner/Spinner'
+import Spinner from "../../src/components/Spinner/Spinner"
 describe("what the login screen should do", () => {
   it("clicks the sign in page and fills out input fields", () => {
     cy.visit("http://localhost:3000")

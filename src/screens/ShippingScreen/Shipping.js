@@ -4,7 +4,6 @@ import Spinner from "../../components/Spinner/Spinner"
 import Tabs from "../../components/Tabs/Tabs"
 import Refill from "./Refill"
 import Starter from "./Starter"
-import Button from "../../components/Button/Button"
 
 const ShippingScreen = (props) => {
   const { data, dispatch } = props
@@ -56,9 +55,6 @@ const ShippingScreen = (props) => {
             actionTwo={actionTwo}
             dispatch={dispatch}
           />
-          <Button variant="contained" color="error">
-            Reset Data
-          </Button>
           <Tabs
             tabs={{
               "Starter Boxes": <Starter {...data} />,

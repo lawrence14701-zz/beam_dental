@@ -8,6 +8,6 @@ export const fetchData = async () => {
     let modifiedData = data.map((obj) => ({ ...obj, starter: false, refill: false }))
     return modifiedData
   } catch (error) {
-    //error
+    window.alert("Error:  Could not receive family preferences")
   }
 }

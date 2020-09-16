@@ -2,3 +2,5 @@
 package.json
 package-lock.json
 src/serviceWorker.js
+**/*_spec.js
+cypress

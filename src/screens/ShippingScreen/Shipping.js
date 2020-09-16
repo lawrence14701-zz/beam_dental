@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import Table from "../../components/Table/Table"
-import Button from "../../components/Button/Button"
 import Spinner from "../../components/Spinner/Spinner"
 import Tabs from "../../components/Tabs/Tabs"
 import Refill from "./Refill"
@@ -31,14 +30,14 @@ const ShippingScreen = (props) => {
   }
 
   const actionOne = {
-    node: <Button color="primary">Starter</Button>,
-    name: "add starter",
+    color: "primary",
+    name: "Starter",
     hook: { type: "SET_STARTER" },
     snackbar: "Add Starter",
   }
   const actionTwo = {
-    node: <Button color="secondary">Refill</Button>,
-    name: "add refill",
+    color: "secondary",
+    name: "Refill",
     hook: { type: "SET_REFILL" },
     snackbar: "Add refill",
   }

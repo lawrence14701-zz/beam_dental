@@ -1,10 +1,27 @@
 import MaterialUIButton from "@material-ui/core/Button"
-import React from "react"
+import React, { useState } from "react"
 
 const Button = (props) => {
+  const { variant, children, color } = props
+  const [disable, setDisable] = useState(false)
+  const handleClick = () => {
+    setDisable(true)
+  }
   return (
     <>
-      <MaterialUIButton {...props} />
+      {disable === true ? (
+        <MaterialUIButton variant="contained" disabled>
+          {children}
+        </MaterialUIButton>
+      ) : (
+        <MaterialUIButton
+          color={color}
+          variant={variant}
+          onClick={() => handleClick()}
+        >
+          {children}
+        </MaterialUIButton>
+      )}
     </>
   )
 }

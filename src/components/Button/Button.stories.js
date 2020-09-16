@@ -15,12 +15,8 @@ export const Secondary = Template.bind({})
 
 Primary.args = {
   color: "primary",
-  type: "error",
-  text: "failed",
 }
 
 Secondary.args = {
   color: "secondary",
-  type: "success",
-  text: "good job",
 }

@@ -1,21 +1,19 @@
 import React, { useContext } from "react"
 import { Route } from "react-router-dom"
 import { AuthContext } from "../global/auth"
+import Login from "../screens/LoginScreen/Login"
+import Edit from "../screens/EditScreen/Edit"
 
-const PrivateRoute = ({ component: Component, ...otherProps }) => {
+const PrivateRoute = ({ ...otherProps }) => {
   const { isAuthenticated } = useContext(AuthContext)
   return (
     <Route
       {...otherProps}
-      render={(props) =>
-        !isAuthenticated ? (
-          <Component {...props} />
+      render={() =>
+        isAuthenticated ? (
+          <Route component={Edit} to="/shipping" />
         ) : (
-          //   <Redirect
-          //     from="/"
-          //     to={otherProps.redirectTo ? otherProps.redirectTo : "/shipping"}
-          //   />
-          (window.location.href = "http://localhost:3000/shipping")
+          <Route component={Login} to="./" />
         )
       }
     />

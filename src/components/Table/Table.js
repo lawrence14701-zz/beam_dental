@@ -16,12 +16,13 @@ import Remove from "@material-ui/icons/Remove"
 import SaveAlt from "@material-ui/icons/SaveAlt"
 import Search from "@material-ui/icons/Search"
 import ViewColumn from "@material-ui/icons/ViewColumn"
-import ButtonGroup from "@material-ui/core/ButtonGroup"
-import Button from "../Button/Button"
 import useStyles from "./style"
 import Grid from "@material-ui/core/Grid"
 import SnackBar from "../SnackBar/SnackBar"
 import uuid from "react-uuid"
+import MUIButton from "@material-ui/core/Button"
+import Button from "../Button/Button"
+import ButtonGroup from "@material-ui/core/ButtonGroup"
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -150,10 +151,11 @@ export default function Table(props) {
                   if (action.icon === actionOne.name) {
                     return (
                       <ButtonGroup
-                        disabled={props.data.starter}
                         onClick={(event) => props.action.onClick(event, props.data)}
                       >
-                        {actionOne.node}
+                        <Button variant="outlined" color={actionOne.color}>
+                          {actionOne.name}
+                        </Button>
                       </ButtonGroup>
                     )
                   }
@@ -162,7 +164,9 @@ export default function Table(props) {
                       <ButtonGroup
                         onClick={(event) => props.action.onClick(event, props.data)}
                       >
-                        {actionTwo.node}
+                        <Button variant="outlined" color={actionTwo.color}>
+                          {actionTwo.name}
+                        </Button>
                       </ButtonGroup>
                     )
                   }
@@ -174,14 +178,14 @@ export default function Table(props) {
       {type === "CRUD" ? (
         <>
           <Grid className={classes.container} container alignContent="center">
-            <Button
+            <MUIButton
               className={classes.button}
               variant="outlined"
               color="primary"
               onClick={() => handleClick()}
             >
               Save
-            </Button>
+            </MUIButton>
           </Grid>
           {saveNodes.length > 0
             ? saveNodes.map((node) => {

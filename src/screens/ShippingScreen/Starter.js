@@ -2,11 +2,11 @@ import React from "react"
 import StarterBox from "../../components/Card/Card"
 import IconWithText from "../../components/IconAndText/IconAndText"
 import uuid from "react-uuid"
-import { generateBoxes } from "../../util/helperFunctions"
+import { generateStarterBoxes } from "../../util/helperFunctions"
 
 const Starter = (props) => {
   const { starter } = props
-  const [sameColor, leftOvers] = generateBoxes(starter)
+  const [sameColor, leftOvers] = generateStarterBoxes(starter)
   const leftOverBoxes = []
   while (leftOvers.length !== 0) {
     if (leftOvers % 2 === 0) {

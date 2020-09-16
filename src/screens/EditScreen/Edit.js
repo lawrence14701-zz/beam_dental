@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import CrudTable from "../../components/Table/Table"
 import { FamilyContext } from "../../global/family"
 import Spinner from "../../components/Spinner/Spinner"
-import Button from "../../components/Button/Button"
+import MUIButton from "@material-ui/core/Button"
 import Grid from "@material-ui/core/Grid"
 import Box from "@material-ui/core/Box"
 import { styled } from "@material-ui/core/styles"
@@ -55,13 +55,13 @@ const Edit = () => {
               />
             </Grid>
             <Grid item>
-              <Button
+              <MUIButton
                 onClick={() => setClicked(true)}
                 variant="outlined"
                 color="secondary"
               >
                 Continue to shipping
-              </Button>
+              </MUIButton>
             </Grid>
           </Grid>
         </div>

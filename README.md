@@ -5,7 +5,7 @@
 1. Write tests first, even if you are creating a component.
 1. Make your test pass by building out the feature. yarn test
 1. Commit and push your code; code will be checked for eslint lint errors automatically
-<<<<<<< HEAD
+   <<<<<<< HEAD
 1. Check CircleCI for failures
 
 ## Development Tips
@@ -95,8 +95,8 @@ Overall I believe I did very well in executing the project. Some things I think 
 
 - adding a page header the displays the manager's name and hold a button to allow him to logout
 
-- adding a reset data so that the manager can clear which boxes were added
-=======
+- # adding a reset data so that the manager can clear which boxes were added
+
 1. Check CircleCI for failures, local host must be running to run cirlce ci tests.
 
 ## Development Tips
@@ -178,7 +178,7 @@ I wanted this assignment to emulate a real application. With that said, I decide
 
 ## Honest Opinion
 
-Overall I believe I did very well in executing the project. Some things I think I could have done better was integration testing and e2e testing.Things I hope to learn while on the job is best practices for writing tests, and of course much more. 
+Overall I believe I did very well in executing the project. Some things I think I could have done better was integration testing and e2e testing.Things I hope to learn while on the job is best practices for writing tests, and of course much more.
 
 ## Future considerations
 
@@ -188,9 +188,9 @@ Overall I believe I did very well in executing the project. Some things I think 
 
 - adding a reset data so that the manager can clear which boxes were added
 
-## Honorable Mentions 
+## Honorable Mentions
 
-the code below allowed me to create the boxes for the starter and refille tabs 
+the code below allowed me to create the boxes for the starter and refille tabs
 
 ```
 export const generateBoxes = (boxes, max) => {
@@ -232,4 +232,4 @@ export const generateBoxes = (boxes, max) => {
 }
 ```
 
->>>>>>> ca3b37b3a63624bc685815049f11fcc5ff590281
+> > > > > > > ca3b37b3a63624bc685815049f11fcc5ff590281

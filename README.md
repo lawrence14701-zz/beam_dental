@@ -5,7 +5,7 @@
 1. Write tests first, even if you are creating a component.
 1. Make your test pass by building out the feature. yarn test
 1. Commit and push your code; code will be checked for eslint lint errors automatically
-1. Check CircleCI for failures
+1. Check CircleCI for failures, local host must be running to run cirlce ci tests.
 
 ## Development Tips
 

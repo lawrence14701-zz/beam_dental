@@ -8,8 +8,8 @@ describe("edit screen should contain crud table and button to save and move to n
     cy.wait(4000)
   })
   it("When continue is clicked it moves to next screen", () => {
-    cy.location().get('button').get('.continue').click()
+    cy.location().get("button").get(".continue").click()
     cy.wait(4000)
     cy.get(Table)
-})
+  })
 })

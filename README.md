@@ -86,7 +86,7 @@ I wanted this assignment to emulate a real application. With that said, I decide
 
 ## Honest Opinion
 
-Overall I believe I did very well in executing the project. Some things I think I could have done better was integration testing and e2e testing.
+Overall I believe I did very well in executing the project. Some things I think I could have done better was integration testing and e2e testing.Things I hope to learn while on the job is best practices for writing tests, and of course much more. 
 
 ## Future considerations
 

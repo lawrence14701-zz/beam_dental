@@ -179,7 +179,7 @@ export default function Table(props) {
         <>
           <Grid className={classes.container} container alignContent="center">
             <MUIButton
-              className={classes.button}
+              className={(classes.button, "save")}
               variant="outlined"
               color="primary"
               onClick={() => handleClick()}

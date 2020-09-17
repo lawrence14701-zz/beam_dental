@@ -56,6 +56,7 @@ const Edit = () => {
             </Grid>
             <Grid item>
               <MUIButton
+                className="continue"
                 onClick={() => setClicked(true)}
                 variant="outlined"
                 color="secondary"

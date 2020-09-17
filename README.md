@@ -98,6 +98,8 @@ Overall I believe I did very well in executing the project. Some things I think 
 
 ## Honorable Mentions 
 
+the code below allowed me to create the boxes for the starter and refille tabs 
+
 ```
 export const generateBoxes = (boxes, max) => {
   let count = 0
